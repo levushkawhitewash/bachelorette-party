@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета для Девичника Катерины | Твой легендарный вечер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Pacifico&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-blue: #00ffff;
+            --neon-purple: #bd00ff;
+            --dark-bg: #0f0e17;
+            --text-light: #fffffe;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: linear-gradient(rgba(15, 14, 23, 0.9), rgba(15, 14, 23, 0.9)), url('https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, var(--dark-bg) 150%), 
+                        linear-gradient(45deg, var(--neon-purple) 0%, transparent 50%),
+                        linear-gradient(135deg, var(--neon-blue) 0%, transparent 50%);
+            z-index: -1;
+            opacity: 0.4;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://s169vla.storage.yandex.net/rdisk/2361a6fe319af89c48d87c119ae7aea62284f916ddeba7fc8101a394a8238913/683e12f7/rNphXlEEeLWMmX3Up6fvQfX7hySsb1ugTs-6WeSu1-9JAZUJbxvQSEkUJvyccXHj64BvV8HTmgSUjUbVGrRhoA==?uid=0&filename=IMG_1397.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=773994&hid=8c9834ceb135bf8de76370a2f55bc403&media_type=image&tknv=v3&etag=75a986fa715376c64474556d7e75958f&ts=6369d2ce16bc0&s=9fda8a5a48a67554d5256eba3163edf7b6a5b9e9335fba4e13ba466d9f7b269b&pb=U2FsdGVkX18_x12jTS55Nm-WMJBeAFDKhmkDvmltPyn7F3HXqEbFuEVwCXjRCsZ7t-sapFqjTEt9ISt5b5uXBWYHVdgTREz1BYZvuwnjGsQ') center/cover no-repeat;
+            filter: brightness(0.7) saturate(1.2);
+            z-index: -1;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(15, 14, 23, 0.2), var(--dark-bg));
+            z-index: -1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 4.5rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink);
+            letter-spacing: 3px;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--neon-blue);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .form-container {
+            background: rgba(25, 24, 38, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.2), 
+                        inset 0 0 20px rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            margin-bottom: 3rem;
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .form-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+        }
+        
+        .form-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--neon-blue);
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--neon-purple);
+        }
+        
+        .form-group::before {
+            content: "→";
+            position: absolute;
+            left: -10px;
+            top: 0;
+            color: var(--neon-pink);
+            font-size: 1.5rem;
+        }
+        
+        .question {
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            color: var(--neon-blue);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .question-number {
+            background: var(--neon-pink);
+            color: var(--dark-bg);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            color: #a7a9be;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(31, 30, 47, 0.7);
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-family: 'Raleway', sans-serif;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .option-card {
+            background: rgba(31, 30, 47, 0.7);
+            border: 1px solid rgba(255, 0, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-blue);
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        .option-card.selected {
+            border-color: var(--neon-pink);
+            background: rgba(189, 0, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+        }
+        
+        .option-card h3 {
+            color: var(--neon-blue);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .option-card p {
+            font-size: 0.9rem;
+            color: #a7a9be;
+        }
+        
+        .friends-photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .friend-photo {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 120px;
+            background: #333;
+            position: relative;
+        }
+        
+        .friend-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .friend-photo:hover img {
+            transform: scale(1.1);
+        }
+        
+        .friend-photo::after {
+            content: "♥";
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: var(--neon-pink);
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem auto 0;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 25px rgba(255, 0, 255, 0.7);
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 0, 255, 0.2);
+            color: #a7a9be;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        
+        .neon-text {
+            color: var(--neon-pink);
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+        
+        /* Стили для музыкального плеера */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(189, 0, 255, 0.7);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--neon-pink);
+            transition: all 0.3s ease;
+        }
+        
+        .music-player:hover {
+            transform: scale(1.1);
+            background: rgba(255, 0, 255, 0.8);
+        }
+        
+        .music-player i {
+            font-size: 24px;
+            color: white;
+        }
+        
+        .music-note {
+            position: absolute;
+            font-size: 10px;
+            opacity: 0;
+        }
+        
+        /* Анимация нот */
+        @keyframes floatNote {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-50px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink);
+            }
+            to {
+                text-shadow: 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink), 0 0 45px var(--neon-pink);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .form-container {
+                padding: 1.5rem;
+            }
+            
+            .question {
+                font-size: 1.2rem;
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Музыкальный плеер -->
+    <div class="music-player" id="musicPlayer">
+        <i class="fas fa-play"></i>
+    </div>
+    
+    <audio id="backgroundMusic" loop mute autoplay>
+        <!-- В реальном использовании заменить на прямую ссылку -->
+        <source src="https://muzdark.net/uploads/music/2024/05/Sumasshedshij_lyazhem_pod_narkoz_Mem_original.mp3" type="audio/mpeg">
+    </audio>
+    
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Девичник Катерины</h1>
+            <p class="subtitle">Анкета для создания самого незабываемого вечера.</p>
+            <p>Твоя подружайки знают, как организовать событие года!🥳 
+            Нажми на Play👇</p>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="form-container">
+            <div class="form-title">
+                <h2>Давай вместе создадим легенду!</h2>
+                <p>Китька, ты, как гуру чудесных вечеров и наша львица,помоги нам с организейшен вопросами💅 Эта анкета создана, чтобы твой девичник стал темой для разговоров на следующие 50 лет. Отвечай честно - не скромничай😉!</p>
+            </div>
+            
+            <form id="bachelorette-form">
+                <!-- Question 1 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">1</div>
+                        <div>Какой эпичный сценарий девичника ты видишь? (Выбери один или предложи свой вариант)</div>
+                    </div>
+                    <div class="options-grid">
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Катерина со своей свитой в отрыве</h3>
+                            <p>Адреналин, экстрим, танцы в Любимом Бресте🥲 </p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Великий Гэтсби: Катерина. Начало. </h3>
+                            <p>Шик, блеск, шампанское фонтанами и фотосессия в стиле ретро (бюджет стотыщмиллилнов баксов)</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Катерина в Матрице</h3>
+                            <p>Начало в уютной обстановке, а затем как с горячей самбукой только без🗿 </p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Катерина в Стране чудес</h3>
+                            <p>Шота зефирное за городом</p>
+                        </div>
+                    </div>
+                    <input type="text" placeholder="Или введи свой вариант..." style="margin-top: 15px;">
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">2</div>
+                        <div>Где будем делать историю? (Знаем,ты уже представляешь эти места)</div>
+                    </div>
+                    <div class="options-grid">
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Медуза</h3>
+                            <p>Где кабинок туалетных много и кальяны бьются</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Сандра</h3>
+                            <p>С админом разберемся</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Катерина в релаксе</h3>
+                            <p>Шале, бассейн, природа и атмосферные фото</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Не родись красивой, напейся красиво: квест-комбо</h3>
+                            <p>Несколько локаций за ночь - от  ужина до "по барам в пьяном угаре"</p>
+                        </div>
+                    </div>
+                    <input type="text" placeholder="Твой идеальный вариант (если есть)" style="margin-top: 15px;">
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">3</div>
+                        <div>Кого зовем на эту легендарную вечеринку? (Давай без скромности)</div>
+                    </div>
+                    <label for="guests">Имена и контакты, шоб знали, кому звонить (телефон или инстаграм):</label>
+                    <textarea id="guests" rows="4" placeholder="Например: Леся - @lesya_inst, +375-XX-XXX-XX-XX&#10;Марина - @marina_tg, +375-XX-XXX-XX-XX"></textarea>
+                    
+                    <p style="margin-top: 15px; color: var(--neon-blue);">Так, фоточки для разрядочки:</p>
+                    <div class="friends-photos">
+                        <div class="friend-photo"><img src="https://s253klg.storage.yandex.net/rdisk/08fada5b8ce1c6553d70bede22e33a3b168d5a0f83780b89d71d9c128cf23b51/683e13a4/rNphXlEEeLWMmX3Up6fvQUEEOpVcHMrq-p11N2_2xQ1EnzhdA9OgLosTF3TfOpRVEJPogtfMrme_D9-5D90ZYg==?uid=0&filename=IMG_1423.JPG&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&fsize=106982&hid=59b78453be02be25482beeecb338feb9&media_type=image&tknv=v3&etag=42a6c1a9647b5445b7693a1ea447fe9d&ts=6369d37313100&s=ad97c4b594b23bf294492e00b483136320befff49f8e3d4f9cddc86948d020ce&pb=U2FsdGVkX18EIElctwRpxx86GnPGzYRpWZ5QY2AllNQjAzSmkeUb_tFg39w5C1vJvzaTeA5LMD7zhfQ1ntahu9e0O9VP_U0S5cPqAk3J8dM" alt="Катя и подруги"></div>
+                        <div class="friend-photo"><img src="https://downloader.disk.yandex.ru/preview/f52523b908acf444777502172b5c2a1d37ebb1c948114d48847995bef49f736f/683e141c/M23eP0MHuKLbRbTMdtLH0-rFcuQGiLpjy22-Ez3VdSubezEBq2emv96uOD1DeG5biKiP01BkgHwLVLLiTnUGTQ%3D%3D?uid=0&filename=IMG_1425.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v3&size=1125x1839" alt="Катя и подруги"></div>
+                        <div class="friend-photo"><img src="https://s673vla.storage.yandex.net/rdisk/61a513eb7c690559d9939c83ac45563a8661830638a3a294aab9e10596d39e0b/683e141c/rNphXlEEeLWMmX3Up6fvQdAg9RjUfNWd2kllJMwTKPFmcQrPtAMvBACfezw0QAX0aGMSw0k_L3HgHpcpd4O67g==?uid=0&filename=IMG_7583.heic&disposition=attachment&hash=&limit=0&content_type=image%2Fheic&owner_uid=0&fsize=1753141&hid=32d7e466bc8b9014d1e325015e7b43a6&media_type=image&tknv=v3&etag=bacf61200233073051d1976f6caea75e&ts=6369d3e583f00&s=9801700ae55e8ddb9ee12efce4624ccf24cbe56e290be0906025b66c60183621&pb=U2FsdGVkX1_kfaK7Pb8cIMVaFQymmQD8dtJBRNJ1aL_rfW7Z13xePg5O3LnU3D_j1iFw0YKP2PnyMh25hH8qrg86ZsuWflUu_TkTe0F2wbw" alt="Катя и подруги"></div>
+                        <div class="friend-photo"><img src="https://s897sas.storage.yandex.net/rdisk/5561c471e0287b100caf5cef5ed72fed4afadc34f99011ca996326c7af02d214/683e141c/rNphXlEEeLWMmX3Up6fvQTJAu766QoDNIGEqjbLkYXRKyOmivqh5oCync-PjgHktd0pBohsd5sjgtzjk9qvdZQ==?uid=0&filename=IMG_1418.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&fsize=2518243&hid=defa185cb69226339e1897b385b0b3f4&media_type=image&tknv=v3&etag=8bce84be2fbbc0a8686122c41508e91e&ts=6369d3e583f00&s=583977b0683d41a6f46e0eeecab6fe18b734f6aa33152bb157a42766898f1e3f&pb=U2FsdGVkX1_-ZTnaix7Z6bIoeXOP8sXp8lTXDsu-LASct-cpHnA_Iykt4e8LFd7fWALKAfVfR78LBuzQV_KwqrE6klWB3brRMg04dcy3JCQ" alt="Катя и подруги"></div>
+                        <div class="friend-photo"><img src="https://s480vla.storage.yandex.net/rdisk/a236b605d4ec136ff1941b74e4ddf4a0e577db1f12b457972a958cb33fcab57d/683e141c/rNphXlEEeLWMmX3Up6fvQZnZj50cEUaI_UMDWwSMicRb6shqv5l1toJyzvIuuavy0MO7BJE_pjfWJQYxuoo4mg==?uid=0&filename=IMG_1427.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&fsize=8499907&hid=15adb99028340d101090867fa84269ab&media_type=image&tknv=v3&etag=5ed49d345a9774e1a446897be0214a41&ts=6369d3e583f00&s=71d4a15029591d25dd7a1cbc202c9c06337af001d0491dcac1ce871fdf8eb4b4&pb=U2FsdGVkX18bhCQCYj256EHS6CdYsri_yw8Sk1vVzYU1LCRAFbRjc3fzx1YwBJeJMbZFl3SmqvSw9FNt-mpqMVvZF7THmkavkPw57edi0wc" alt="Катя и подруги"></div>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">4</div>
+                        <div>Что будем пить? (Помни - мы знаем все твои слабости)</div>
+                    </div>
+                    <div class="options-grid">
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Шампанское</h3>
+                            <p>Потому что мы этого достойны!</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Коктейли</h3>
+                            <p>Цветные, крепкие и в персональных членах</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Вино</h3>
+                            <p>Как будто мы не такие</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Всё сразу!</h3>
+                            <p>Потому что почему бы и нет?</p>
+                        </div>
+                    </div>
+                    <input type="text" placeholder="Особые пожелания (подача, сорт)" style="margin-top: 15px;">
+                </div>
+                
+                <!-- Question 5 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">5</div>
+                        <div>Дресс-код или "как получится"? (Будь честна🗿)</div>
+                    </div>
+                    <select>
+                        <option value="">Выбери вариант</option>
+                        <option value="dressy">Только гламур - платья как у звезд</option>
+                        <option value="theme">Тематический костюм (уточни какой)</option>
+                        <option value="casual">Удобно и стильно - джинсы тоже ок</option>
+                        <option value="surprise">Сюрприз от организатора (тебе понравится!)</option>
+                    </select>
+                    <input type="text" placeholder="Уточнения по дресс-коду...">
+                </div>
+                
+                <!-- Question 6 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">6</div>
+                        <div>Когда будем творить историю? (Помни - свадьба 1 августа!)</div>
+                    </div>
+                    <label for="date">Предпочтительная дата, шоб знали, когда кредиты брать💸:</label>
+                    <input type="date" id="date">
+                    
+                    <label for="time" style="margin-top: 15px;">Во сколько начинаем:</label>
+                    <select id="time">
+                        <option value="afternoon">Днём (с бранчем)</option>
+                        <option value="evening">Вечером (классика)</option>
+                        <option value="night">Поздно вечером (для настоящих ценителей)</option>
+                        <option value="allday">Весь день и ночь (потому что можем!)</option>
+                    </select>
+                </div>
+                
+                <!-- Question 7 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">7</div>
+                        <div>Что должно быть обязательно? (Не стесняйся, мечтать не вредно)</div>
+                    </div>
+                    <textarea placeholder="Например: конкурсы, бывшие, лимузин на вечер, торт с фото, конкурс на лучший танец..."></textarea>
+                </div>
+                
+                <!-- Question 8 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">8</div>
+                        <div>Чего категорически НЕ должно быть? (Знаю, у тебя есть список)</div>
+                    </div>
+                    <textarea placeholder="Например: тётя Люда, дешевое шампанское, ранний отъезд..."></textarea>
+                </div>
+                
+                <!-- Question 9 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">9</div>
+                        <div>Вспомним твои легендарные выходки. Какая из них должна быть повторена на девичнике?</div>
+                    </div>
+                    <div class="options-grid">
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Горячая самбука</h3>
+                            <p>Как однажды в Бресте?</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Караоке-марафон</h3>
+                            <p>Когда ты спела все песни Меладзе за один вечер</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Знакомство</h3>
+                            <p>Организуем все, шо надо🧚🏽‍♀️</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Создание мема</h3>
+                            <p>Чтобы утром страшно было заходить в галерею</p>
+                        </div>
+                    </div>
+                    <input type="text" placeholder="Или предложи новую идею..." style="margin-top: 15px;">
+                </div>
+                
+                <!-- Question 10 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">10</div>
+                        <div>Какие песни из нашего бурного прошлого должны обязательно прозвучать?</div>
+                    </div>
+                    <textarea placeholder="Например: 'Владимирский централ' после третьего бокала, 'Самба белого мотылька' для ностальгии, 'Выходите бесы, мы станцуем..."></textarea>
+                </div>
+                
+                <!-- Question 11 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">11</div>
+                        <div>Будем ли звонить бывшим? </div>
+                    </div>
+                    <div class="options-grid">
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Да, и пусть пожалеют парацетамолы!</h3>
+                            <p>Показать, как ты расцвела без них</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Только если они оплатят бар</h3>
+                            <p>Месть должна быть изысканной, объявишься в сторис</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Нет,волку не нужна стая, чтобы быть волком</h3>
+                            <p>Хотя...</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Пригласим всех бывших!</h3>
+                            <p>Устроим "Шоу Трумана" в реальности</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 12 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">12</div>
+                        <div>Какой тост от подружаек заставит тебя краснеть больше всего?</div>
+                    </div>
+                    <div class="options-grid">
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Истории про парацетамолов</h3>
+                            <p>И...</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>шота ниче не вспоминается</h3>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Твоя первая встреча с будущим мужем</h3>
+                            <p>Когда ты сказала, что он "ну ниче такой😏"</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>История "мы чисто по пиву, без криминала"</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Question 13 -->
+                <div class="form-group">
+                    <div class="question">
+                        <div class="question-number">13</div>
+                        <div>Какие конкурсы должны быть? (только не говори "никакие", мы знаем твою любовь к приколам)</div>
+                    </div>
+                    <div class="options-grid">
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Угадай, где была Катя</h3>
+                            <p>По фото из прошлого</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Правда или действие</h3>
+                            <p>С нашими эксклюзивными вопросами</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Танец на полу</h3>
+                            <p>Как обычно</p>
+                        </div>
+                        <div class="option-card" onclick="selectOption(this)">
+                            <h3>Кто лучше знает невесту</h3>
+                            <p>С каверзными вопросами о прошлом</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Готово! Спасибо, мы постараемся организовать это!</button>
+            </form>
+        </div>
+        
+        <div class="footer-note">
+            <p>Спасибо за ответы, Катюш! Теперь мы знаем все твои слабости (в смысле, предпочтения). Готовься к девичнику, который войдет в историю как "Тот самый вечер, после которого <span class="neon-text">все</span> вспоминали только с улыбкой (или с головной болью, но это мелочи)!".</p>
+            <p style="margin-top: 15px; font-size: 0.9rem;">P.S. Не волнуйся, я сохраню эти данные в строжайшем секрете (и отправлю на vhalperina@mail.ru). Сайт самоуничтожится 1 августа 2025 года, как и твоя свободная незамужняя жизнь😉</p>
+        </div>
+    </div>
+
+    <script>
+        // Select option cards
+        function selectOption(card) {
+            const parent = card.parentElement;
+            const cards = parent.querySelectorAll('.option-card');
+            
+            cards.forEach(c => {
+                c.classList.remove('selected');
+            });
+            
+            card.classList.add('selected');
+        }
+        
+        // Form submission
+document.getElementById('bachelorette-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    // Get current date
+    const now = new Date();
+    
+    // Check if the form is still valid (before August 1, 2025)
+    const expiryDate = new Date('2025-08-01');
+    
+    if (now > expiryDate) {
+        alert('Извини, Катюш! Анкета закрыта 1 августа 2025 года. Девичник уже прошел (надеюсь, он был легендарным)!');
+        return;
+    }
+    
+    // Собираем данные формы
+    const formData = new FormData(this);
+    const formValues = {};
+    
+    formData.forEach((value, key) => {
+        formValues[key] = value;
+    });
+    
+    // Добавляем выбранные опции
+    const selectedOptions = {};
+    document.querySelectorAll('.option-card.selected').forEach(card => {
+        const questionNumber = card.closest('.form-group').querySelector('.question-number').textContent;
+        const optionTitle = card.querySelector('h3').textContent;
+        selectedOptions[`question_${questionNumber}`] = optionTitle;
+    });
+    
+    const allData = {
+        ...formValues,
+        ...selectedOptions,
+        timestamp: new Date().toISOString()
+    };
+    
+    // Формируем сообщение для Telegram
+    let message = `🎉 *Новые ответы на анкету девичника Катерины!* 🎉\n\n`;
+    
+    // Добавляем вопросы и ответы
+    message += `💃 *1. Сценарий девичника:*\n${allData['question_1'] || allData[0] || 'Не указано'}\n\n`;
+    message += `📍 *2. Место проведения:*\n${allData['question_2'] || allData[1] || 'Не указано'}\n\n`;
+    message += `👯 *3. Гости:*\n${allData['guests'] || 'Не указано'}\n\n`;
+    message += `🍹 *4. Напитки:*\n${allData['question_4'] || allData[3] || 'Не указано'}\n\n`;
+    message += `👗 *5. Дресс-код:*\n${allData[4] || 'Не указано'}\n\n`;
+    message += `📅 *6. Дата и время:*\n${allData['date'] || 'Не указано'} (${allData['time'] || 'Не указано'})\n\n`;
+    message += `✅ *7. Обязательные элементы:*\n${allData[6] || 'Не указано'}\n\n`;
+    message += `❌ *8. Запрещенные элементы:*\n${allData[7] || 'Не указано'}\n\n`;
+    message += `🤪 *9. Повторить выходку:*\n${allData['question_9'] || allData[8] || 'Не указано'}\n\n`;
+    message += `🎵 *10. Песни:*\n${allData[9] || 'Не указано'}\n\n`;
+    message += `👨 *11. Бывшие:*\n${allData['question_11'] || 'Не указано'}\n\n`;
+    message += `🥂 *12. Тост:*\n${allData['question_12'] || 'Не указано'}\n\n`;
+    message += `🎭 *13. Конкурсы:*\n${allData['question_13'] || 'Не указано'}\n\n`;
+    
+    // Ваши данные для Telegram бота
+    const botToken = '7802594410:AAH_R6r9S4iWVdbu3Z0mn8Ib63-gUV_6QbE';
+    const chatId = '1694279752';
+    
+    try {
+        // Отправка в Telegram
+        const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'Markdown'
+            })
+        });
+        
+        const result = await response.json();
+        
+        if (result.ok) {
+            alert('Спасибо за ответы! Данные отправлены организаторам. Готовься к лучшему девичнику в истории! 🥳');
+            
+            // Reset form
+            this.reset();
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+        } else {
+            alert('Ошибка при отправке данных. Пожалуйста, попробуйте еще раз или свяжитесь с организаторами.');
+        }
+    } catch (error) {
+        console.error('Ошибка:', error);
+        alert('Произошла ошибка при отправке данных. Пожалуйста, попробуйте еще раз.');
+    }
+});
+        
+        // Auto-expire after August 1, 2025
+        function checkExpiry() {
+            const now = new Date();
+            const expiryDate = new Date('2025-08-01');
+            
+            if (now > expiryDate) {
+                document.body.innerHTML = `
+                    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background: var(--dark-bg); text-align: center; padding: 20px;">
+                        <div>
+                            <h1 style="font-size: 3rem; color: var(--neon-pink); margin-bottom: 2rem;">Анкета закрыта!</h1>
+                            <p style="font-size: 1.5rem; color: var(--neon-blue);">Девичник Катерины уже прошел 1 августа 2025 года!</p>
+                            <p style="font-size: 1.2rem; color: var(--text-light); margin-top: 1rem;">Надеюсь, он был таким же незабываемым, как и эта анкета 😉</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        // Музыкальный плеер
+        const musicPlayer = document.getElementById('musicPlayer');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        let musicPlaying = false;
+        
+        musicPlayer.addEventListener('click', function() {
+            if (musicPlaying) {
+                backgroundMusic.pause();
+                musicPlayer.innerHTML = '<i class="fas fa-play"></i>';
+                musicPlayer.style.background = 'rgba(189, 0, 255, 0.7)';
+            } else {
+                backgroundMusic.play()
+                    .then(() => {
+                        musicPlaying = true;
+                        musicPlayer.innerHTML = '<i class="fas fa-pause"></i>';
+                        musicPlayer.style.background = 'rgba(255, 0, 255, 0.8)';
+                    })
+                    .catch(e => {
+                        console.error("Автовоспроизведение заблокировано:", e);
+                        musicPlayer.innerHTML = '<i class="fas fa-play"></i>';
+                        alert("Нажмите 'Разрешить' в запросе браузера, чтобы включить музыку");
+                    });
+            }
+        });
+        
+        // Попытка автоматического запуска музыки при загрузке
+        window.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                backgroundMusic.play()
+                    .then(() => {
+                        musicPlaying = true;
+                        musicPlayer.innerHTML = '<i class="fas fa-pause"></i>';
+                        musicPlayer.style.background = 'rgba(255, 0, 255, 0.8)';
+                    })
+                    .catch(e => {
+                        console.log("Автовоспроизведение заблокировано. Пользователь должен запустить вручную.");
+                        musicPlayer.innerHTML = '<i class="fas fa-play"></i>';
+                    });
+            }, 1000);
+            
+            // Проверка срока годности
+            checkExpiry();
+        });
+    </script>
+</body>
+</html>
